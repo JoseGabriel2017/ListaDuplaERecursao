@@ -25,4 +25,26 @@ public class Palindromo {
 
         return palavra.equals(reverso.toString());
     }
+
+    //Codigo de Igor
+    Stack<Character> p = new Stack<Character>();
+    StringBuilder inverso = new StringBuilder();
+
+    public boolean inverter(String palavra){
+
+        for(int cont = 0; cont<palavra.length();cont++){
+
+            p.push(palavra.charAt(cont));
+        }
+
+        while(!p.isEmpty()){
+            inverso.append(p.pop());
+        }
+
+        if(palavra.equalsIgnoreCase(""+inverso)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
