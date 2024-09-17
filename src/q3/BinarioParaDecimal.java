@@ -9,6 +9,7 @@ public class BinarioParaDecimal {
         String binario = input.nextLine();
         int decimal = binarioParaDecimal(binario, binario.length() - 1);
         System.out.println("O número binário " + binario + " em decimal é: " + decimal);
+
     }
 
     //tentei, mas não consegui, pedi ajuda do GPT e não entendi
@@ -19,15 +20,22 @@ public class BinarioParaDecimal {
         return (digito * (int) Math.pow(2, binario.length() - 1 - posicao)) + binarioParaDecimal(binario, posicao - 1);
     }
 
+    //codigo de Igor
     public int decimal(String binario){
+
+        if(binario.isEmpty()){
+            return 0;
+        }
         
         int tamanho = binario.length();
         int bit = Integer.parseInt(binario.substring(0, 1));
         String bitrestante = binario.substring(1);
 
-        if(tamanho>0){
+     
+        return bit*(int) Math.pow(2, tamanho-1)+decimal(bitrestante);
+        
 
-            return bit*(int) Math.pow(2, bit);
-        }
-    }
+       
+    
+}
 }
